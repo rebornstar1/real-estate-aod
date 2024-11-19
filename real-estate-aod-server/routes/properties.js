@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const {VideoUpload} = require("../controllers/property.controller.js");
 const express = require('express');
 const {upload,handleUpload} = require("../middleware/video.middleware.js"); // Video middleware
 const {
@@ -15,7 +16,9 @@ router.get("/properties", getAllProperties);
 router.get("/properties/:id", getPropertyById);
 router.patch("/properties/:id", updateProperty);
 
-router.post("/properties", upload, handleUpload, createProperty);
+router.post("/properties/video",upload,handleUpload,VideoUpload);
+
+router.post("/properties",createProperty);
 
 router.use('/uploads', express.static('uploads'));
 router.use(express.static(__dirname + '/public'));

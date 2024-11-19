@@ -16,6 +16,13 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // Middleware
+
+// const corsOptions = {
+//   origin: 'http://localhost:5173', // Replace with your frontend URL
+//   methods: ['GET', 'POST'],
+//   allowedHeaders: ['Content-Type', 'Authorization']
+// };
+
 app.use(cors());
 app.use(express.json());
 
@@ -31,6 +38,13 @@ app.use("/api/v1", paymentRoutes);
 // Base route
 app.get("/", (req, res) => {
   res.send("Real estate Abuild Homes server is running...");
+});
+
+app.use((req, res, next) => {
+  res.setTimeout(500000, () => {  // Increase timeout duration (in milliseconds)
+    console.log('Request timed out');
+  });
+  next();
 });
 
 // Start server

@@ -81,17 +81,39 @@ const updateProperty = async (req, res) => {
 //   res.send(result);
 // };
 
-const createProperty = async (req, res) => {
+const VideoUpload = async (req, res) => {
   try {
-    const property = JSON.parse(req.body.property);
-    console.log("Received property:", property);
-
-    if (req.files && req.files.VideoPitch && req.files.VideoPitch[0]) {
+    if (req.files && req.files.VideoPitch) {
+      // You may have multiple files, so make sure to get the first one
       const videoFilePath = req.files.VideoPitch[0].path;
-      const videoUrl = await uploadCloudinary(videoFilePath);
-      property.videoPitchUrl = videoUrl;
-    }
 
+      console.log(videoFilePath);
+
+      // Upload video to Cloudinary
+      const videoUploadResponse = await uploadCloudinary(videoFilePath);
+
+      console.log("videoUploadResponse", videoUploadResponse);
+
+      // Return video URL or other data if needed (extract the secure_url from Cloudinary response)
+      if (videoUploadResponse || videoUploadResponse.secure_url) {
+        res.status(200).json({ videoUrl: videoUploadResponse});
+      } else {
+        res.status(500).json({ error: "Failed to retrieve video URL from Cloudinary." });
+      }
+    } else {
+      return res.status(400).json({ error: "No video file provided." });
+    }
+  } catch (error) {
+    console.error("Error uploading video to Cloudinary:", error);
+    res.status(500).json({ error: "Failed to upload video." });
+  }
+};
+
+const createProperty = async (req, res) => {
+  console.log("req.body",req.body);
+  try {
+    const property = req.body;
+    console.log("Received property:", property);
     const result = await propertiesCollection().insertOne(property);
     res.status(201).json(result);
   } catch (error) {
@@ -130,5 +152,6 @@ module.exports = {
   createProperty,
   deleteProperty,
   verifyProperty,
-  rejectProperty
+  rejectProperty,
+  VideoUpload,
 };
