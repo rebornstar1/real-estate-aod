@@ -13,7 +13,7 @@ const AddedPropertyCard = ({ property,refetch }) => {
   const {
     _id,
     // propertyID,
-    propertyImage,
+    propertyImages,
     propertyLocation,
     priceRange,
     propertyTitle,
@@ -22,6 +22,8 @@ const AddedPropertyCard = ({ property,refetch }) => {
     agentImage,
     status,
   } = property;
+
+  console.log("property",propertyImages);
 
 
   const handleRemove = async()=>{
@@ -61,7 +63,7 @@ const AddedPropertyCard = ({ property,refetch }) => {
     <article className="overflow-hidden rounded-lg shadow transition hover:shadow-lg max-w-sm xl:max-w-lg mx-auto h-full bg-base-200">
       <img
         alt="property image"
-        src={propertyImage}
+        src={propertyImages[0]}
         className="aspect-video w-full object-cover"
       />
 

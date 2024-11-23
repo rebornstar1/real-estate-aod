@@ -132,7 +132,7 @@ const AboutUs = () => {
               <MdEmail />
             </span>
             <p className="text-xl text-neutral">Email</p>
-            <p className="text-xl ">abuild@estate.com</p>
+            <p className="text-xl ">real-agent@estate.com</p>
           </div>
           <div className="flex flex-col p-6 md:p-10 border-4 rounded-xl border-b-8 border-y-primary transition duration-150 hover:scale-105 cursor-pointer h-full relative gap-6 ">
             <span className="border-4 border-primary flex justify-center items-center text-3xl text-white bg-primary aspect-square  rounded-full absolute font-bold w-16 h-16 -top-10 left-[45%] md:left-[36%] lg:left-[40%]">

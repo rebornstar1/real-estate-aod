@@ -19,7 +19,7 @@ const MiniCard = ({ property }) => {
         <div className="flex-1 h-full">
           <img
             alt="property image"
-            src={propertyImage}
+            src="https://res.cloudinary.com/dxfkcud6l/image/upload/v1732286143/test_jgajfm.jpg"
             className="rounded-xl h-full object-cover "
           />
         </div>

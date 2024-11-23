@@ -13,7 +13,7 @@ import LogOutButton from "../Buttons/LogOutButton";
 
 const Navbar = () => {
   const { user } = useAuth();
-  // console.log(user);
+  console.log("user",user);
   const axiosPublic = useAxiosPublic();
 
   // user role fetching
@@ -24,7 +24,6 @@ const Navbar = () => {
       return res.data;
     },
   });
-
   
 
   // theme changing with local storage
@@ -188,10 +187,12 @@ const Navbar = () => {
                   className="  rounded-full border-2 border-primary"
                 >
                   <img
-                    src={
+                    src=
+                    {
                       user?.photoURL
                         ? user.photoURL
                         : "https://i.ibb.co/5x6DN2n/blank-dp.png"
+                      
                     }
                     alt="user-photo"
                     className="w-full"
@@ -211,6 +212,7 @@ const Navbar = () => {
                           ROLE :{" "}
                           <span className="uppercase btn-secondary btn btn-xs text-white">
                             {data[0]?.role}
+                            {/* Agent */}
                           </span>
                         </p>
                         <hr className="mt-3" />
@@ -222,6 +224,7 @@ const Navbar = () => {
                     <>
                       <p className="font-semibold text-center">
                         {user?.displayName}
+                        {/* Sambhav Sharma */}
                       </p>
                     </>
                   )}
@@ -229,6 +232,7 @@ const Navbar = () => {
                   <p>
                     <MdMail className="inline text-xl text-secondary" />{" "}
                     {user?.email}
+                    {/* SambhavSharma@gmail.com */}
                   </p>
                  <LogOutButton/>
                 </ul>

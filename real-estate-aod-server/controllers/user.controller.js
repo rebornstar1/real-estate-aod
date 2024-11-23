@@ -6,11 +6,13 @@ const usersCollection = () => getDB().collection("users");
 
 const createUser = async (req, res) => {
   const user = req.body;
+  console.log("req.body",req.body);
   const query = { email: user.email };
   const existingUser = await usersCollection().findOne(query);
   if (existingUser) {
     return res.send({ message: "user already exist", insertedId: null });
   }
+  user.email = user.email.toLowerCase();
   const result = await usersCollection().insertOne(user);
   res.send(result);
 };
@@ -31,7 +33,9 @@ const getUserRole = async (req, res) => {
   if (email) {
     query = { email: email };
   }
+  console.log("email-getrole",email);
   const result = await usersCollection().findOne(query);
+  console.log("result-getrole",result);
   res.send(result?.role);
 };
 

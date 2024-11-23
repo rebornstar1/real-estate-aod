@@ -3,7 +3,7 @@ import HeaderText from "../HeaderText/HeaderText";
 const AvailableCountries = () => {
   return (
     <div>
-      <HeaderText headerText="We are available in many" headerText2=" well known countries" />
+      <HeaderText headerText="We are available in many" headerText2=" states across india" />
       <CountrySlider />
     </div>
   );

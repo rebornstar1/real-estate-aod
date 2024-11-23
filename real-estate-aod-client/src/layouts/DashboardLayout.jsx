@@ -28,6 +28,8 @@ const DashboardLayout = () => {
 
   let headerText = "";
   let headerText2 = "DASHBOARD";
+  console.log("role",role);
+  console.log("user",user);
   if (!isLoading) {
     if (role !== "user") {
       headerText = role.toUpperCase();
@@ -46,6 +48,7 @@ const DashboardLayout = () => {
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen); // Toggle sidebar visibility
   };
+  console.log("role",role);
 
   const userNavlinks = (
     <>
@@ -279,7 +282,7 @@ const DashboardLayout = () => {
       </NavLink>
     </>
   );
-   return (
+  return (
     <div className="min-h-screen bg-blue-50 relative">
       {loading ? (
         <div className="flex justify-center items-center min-h-screen bg-blue-100">
@@ -298,7 +301,7 @@ const DashboardLayout = () => {
             checked={sidebarOpen}
             onChange={toggleSidebar}
           />
-
+  
           <div className="drawer-content overflow-x-auto bg-white transition-all duration-300 ease-in-out">
             {/* Navbar Button */}
             <label
@@ -308,12 +311,13 @@ const DashboardLayout = () => {
             >
               <TiThMenuOutline className="text-xl mr-2" /> DASHBOARD
             </label>
-
+  
             <Outlet />
           </div>
-
+  
+          {/* Sidebar content */}
           <div
-            className={`drawer-side bg-gradient-to-tr from-indigo-600 via-blue-500 to-lightblue-300 text-white w-80 min-h-full transition-all duration-300 ease-in-out ${
+            className={`drawer-side bg-gradient-to-tr from-indigo-600 via-blue-500 to-lightblue-300 text-white w-80 min-h-full fixed top-0 left-0 transition-transform duration-300 ease-in-out ${
               sidebarOpen ? "translate-x-0" : "-translate-x-full"
             }`}
           >
@@ -323,7 +327,7 @@ const DashboardLayout = () => {
               className="drawer-overlay"
               onClick={toggleSidebar} // Close sidebar when overlay is clicked
             ></label>
-
+  
             <div
               className={`menu gap-6 p-4 min-h-full ${
                 role === "admin"
@@ -340,6 +344,7 @@ const DashboardLayout = () => {
                 emailText={user?.email}
               />
 
+  
               {isLoading ? (
                 <div className="w-full flex justify-center py-8">
                   <span className="loading loading-ring w-32 h-32 text-center"></span>
@@ -354,22 +359,23 @@ const DashboardLayout = () => {
                 adminNavlinks
               )}
 
+  
               <hr className="border-white my-4" />
-
+  
               {/* Homepage Link */}
               <Link
                 to="/"
-                className="flex items-center hover:bg-blue-300 text-lg font-semibold px-6 py-3 rounded-2xl text-white bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-300"
+                className="flex items-center text-lg font-semibold px-6 py-3 rounded-2xl text-white bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-300"
               >
                 <IoIosHome className="mr-3 text-xl" />
                 HOMEPAGE
               </Link>
-
+  
               {/* Log Out Button */}
               <LogOutButton />
             </div>
           </div>
-
+  
           {/* Vertical Arrow Button for Sidebar Toggle */}
           <div
             className={`fixed top-1/3 transform -translate-y-1/2 z-50 left-0 ${
@@ -388,6 +394,6 @@ const DashboardLayout = () => {
       )}
     </div>
   );
-};
+}  
 
 export default DashboardLayout;

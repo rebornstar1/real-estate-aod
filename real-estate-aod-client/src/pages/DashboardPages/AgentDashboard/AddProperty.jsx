@@ -402,9 +402,9 @@ const handleYouTubeBlur = () => {
 
   const onSubmit = async (data) => {
     const priceRange = `$${data.minPrice} - $${data.maxPrice}`;
-    console.log("priceRange",priceRange);
-    console.log("data",data);
-
+    console.log("priceRange", priceRange);
+    console.log("data", data);
+  
     try {
       const propertyData = {
         agentImage: user?.photoURL,
@@ -412,16 +412,15 @@ const handleYouTubeBlur = () => {
         priceRange,
         status: "pending",
         propertyImages: imageLinks, // Store array of image URLs
-        propertyVideoes : videoLinks,
-        furnishing : selectedOwnershipF,
-        ownership : selectedOwnership,
-        options : selectedOptions
+        propertyVideoes: videoLinks,
+        furnishing: selectedOwnershipF,
+        ownership: selectedOwnership,
+        options: selectedOptions,
+        agentName: user?.displayName,
+        agentEmail: user?.email,
       };
-      console.log("PROPERTYDATA",propertyData);
-
-      // Submit property data to backend
-      // const response = await axiosPublic.post("/api/v1/properties", propertyData);
-
+      console.log("PROPERTYDATA", propertyData);
+  
       const res = await fetch('http://localhost:3000/api/v1/properties', {
         method: 'POST',
         headers: {
@@ -429,15 +428,19 @@ const handleYouTubeBlur = () => {
         },
         body: JSON.stringify(propertyData),
       });
-
+  
       if (!res.ok) {
         throw new Error(`HTTP Error: ${res.status}`);
       }
-
-      const ResData = res.json();
-      console.log("ResData",ResData);
-
-      if (ResData?.insertedId) {
+  
+      // Await the response JSON
+      const ResData = await res.json();
+      console.log("ResData", ResData);
+      console.log("ResData.insertedId", ResData.insertedId);
+  
+      // Proceed only if insertedId is available
+      if (ResData.insertedId) {
+        console.log("This is operational");
         Swal.fire({
           icon: "success",
           color: "white",
@@ -455,6 +458,7 @@ const handleYouTubeBlur = () => {
       toast.error("OOPS! Something went wrong");
     }
   };
+  
   
   return (
     <section className="bg-base-200 text-neutral">
@@ -984,7 +988,7 @@ const handleYouTubeBlur = () => {
                   />
                 </div>
               </div>
-              {loading ? (
+              {/* {loading ? (
                 <span className="loading loading-spinner text-primary loading-md"></span>
               ) : (
                 <>
@@ -998,6 +1002,11 @@ const handleYouTubeBlur = () => {
                       <FaUser className="inline text-xl mr-2 text-blue-500" />
                       Agent Name
                     </label>
+                    <div>
+                      {
+                        user?.displayName
+                      }
+                    </div>
 
                     <div className="relative">
                       <input
@@ -1051,7 +1060,7 @@ const handleYouTubeBlur = () => {
                     </div>
                   </div>
                 </>
-            )}
+            )} */}
     
               <div className="flex flex-col col-span-6 sm:flex sm:items-center sm:gap-4">
 

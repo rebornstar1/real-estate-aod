@@ -7,29 +7,29 @@ import InteractiveQuizzes from './InteractiveQuizzes'
 const modules = [
   {
     id: 1,
-    title: "Introduction to Web Development",
-    description: "Learn the basics of HTML, CSS, and JavaScript.",
+    title: "Introduction to Real Estate",
+    description: "Overview of the Real Estate Industry",
     progress: 80,
     subsections: [
       { 
         id: 101, 
-        title: "HTML Basics", 
-        description: "Learn the fundamental structure of web pages.",
+        title: "Key Stakeholders in Real Estate", 
+        description: "Learn the fundamental structure real estate",
         progress: 100,
         videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
         articleUrl: "https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML"
       },
       { 
         id: 102, 
-        title: "CSS Essentials", 
-        description: "Master the styling of web pages.",
+        title: "Types of Real Estate Properties", 
+        description: "Residential, Commercial, Industrial, Agricultural",
         progress: 60,
         videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
         articleUrl: "https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps"
       },
       { 
         id: 103, 
-        title: "Introduction to JavaScript", 
+        title: "Real Estate Terminology", 
         description: "Get started with programming for the web.",
         progress: 80,
         videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
@@ -39,7 +39,7 @@ const modules = [
   },
   {
     id: 2,
-    title: "Advanced JavaScript Concepts",
+    title: "Real Estate Market Analysis",
     description: "Deep dive into JavaScript ES6+ features and best practices.",
     progress: 40,
     subsections: [
@@ -64,12 +64,12 @@ const modules = [
 ]
 
 const quizzes = [
-  { id: 1, title: "HTML Basics Quiz", difficulty: "Beginner", status: "Completed", score: 95 },
-  { id: 2, title: "CSS Essentials Quiz", difficulty: "Beginner", status: "Not Started" },
-  { id: 3, title: "JavaScript Concepts Quiz", difficulty: "Intermediate", status: "In Progress" },
-  { id: 4, title: "Responsive Design Quiz", difficulty: "Intermediate", status: "Completed", score: 78 },
-  { id: 5, title: "Web Accessibility Quiz", difficulty: "Advanced", status: "Completed", score: 88 }
-]
+  { id: 1, title: "Real Estate Market Basics Quiz", difficulty: "Beginner", status: "Completed", score: 95 },
+  { id: 2, title: "Property Valuation Essentials Quiz", difficulty: "Beginner", status: "Not Started" },
+  { id: 3, title: "Real Estate Finance Concepts Quiz", difficulty: "Intermediate", status: "In Progress" },
+  { id: 4, title: "Legal Aspects of Real Estate Quiz", difficulty: "Intermediate", status: "Completed", score: 78 },
+  { id: 5, title: "Advanced Real Estate Investment Strategies Quiz", difficulty: "Advanced", status: "Completed", score: 88 }
+];
 
 export function LearningDashboard() {
   const [activeTab, setActiveTab] = useState('modules')

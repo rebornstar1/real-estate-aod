@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const AllPropertiesCard = ({ property }) => {
   const {
     _id,
-    propertyImage,
+    propertyImages,
     propertyLocation,
     priceRange,
     propertyTitle,
@@ -14,6 +14,9 @@ const AllPropertiesCard = ({ property }) => {
     agentImage,
     status,
   } = property;
+
+ console.log("propertyImages",propertyImages);
+
   return (
  
       <motion.article className="flex bg-base-200 hover:shadow-md   rounded-2xl transition delay-150 " initial={{
@@ -40,7 +43,7 @@ const AllPropertiesCard = ({ property }) => {
         <div className="hidden sm:block sm:basis-80 lg:max-w-[30%]">
           <img
             alt="property image"
-            src={propertyImage}
+            src={propertyImages[0]}
             className="md:aspect-video  h-full w-full object-cover"
           />
         </div>

@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const HeaderText = ({headerText, headerText2,headerText3,emailText}) => {
     return (
         <div className="text-center py-10">
-            <h2 className="text-xl md:text-3xl font-bold  mx-auto">{headerText}</h2>
+            <h2 className="text-xl md:text-3xl font-bold  mx-auto">"{headerText}"</h2>
             <h2 className="text-xl md:text-3xl font-bold  mx-auto">{headerText2}</h2>
             <h3 className="text-sm md:text-neutral-400 font-bold  mx-auto">{headerText3}</h3>
             <h3 className="text-sm text-white  font-bold  mx-auto">{emailText}</h3>

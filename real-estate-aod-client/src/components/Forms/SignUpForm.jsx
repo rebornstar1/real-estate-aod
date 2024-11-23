@@ -180,10 +180,10 @@ const SignUpForm = () => {
                   id="Email"
                   {...register("email", { required: true })}
                   name="email"
+                  
                   className="mt-1 w-full border-0 rounded-md border-gray-200 focus:outline-2 px-3 bg-slate-100 focus:outline-slate-400 text-sm py-3 shadow-sm"
                 />
               </div>
-
               <div className="col-span-6 relative">
                 <label htmlFor="Password" className="block text-sm font-medium ">
                   Password

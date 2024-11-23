@@ -38,7 +38,7 @@ const CountrySlider = () => {
             className="rounded-t-2xl"
           />
           <p className="text-center text-xs md:text-base rounded-b-xl   font-thin py-2 ">
-            Bangladesh
+            Maharashtra
           </p>
         </SwiperSlide>
         <SwiperSlide className=" text-white rounded-2xl bg-[#2892cfc4]">
@@ -48,7 +48,7 @@ const CountrySlider = () => {
             className="rounded-t-2xl"
           />
           <p className="text-center text-xs md:text-base rounded-b-xl   font-thin py-2 ">
-            Paris
+            Karnataka
           </p>
         </SwiperSlide>
         <SwiperSlide className=" text-white rounded-2xl bg-[#cf2836c4]">
@@ -58,7 +58,7 @@ const CountrySlider = () => {
             className="rounded-t-2xl"
           />
           <p className="text-center text-xs md:text-base rounded-b-xl   font-thin py-2 ">
-            London
+            Delhi
           </p>
         </SwiperSlide>
         <SwiperSlide className=" text-white rounded-2xl bg-[#28c4cfc4]">
@@ -68,7 +68,7 @@ const CountrySlider = () => {
             className="rounded-t-2xl"
           />
           <p className="text-center text-xs md:text-base rounded-b-xl   font-thin py-2 ">
-            USA
+            Odisha
           </p>
         </SwiperSlide>
         <SwiperSlide className=" text-white rounded-2xl bg-[#f32f5ac4]">
@@ -78,7 +78,7 @@ const CountrySlider = () => {
             className="rounded-t-2xl"
           />
           <p className="text-center text-xs md:text-base rounded-b-xl   font-thin py-2 ">
-            Spain
+            Telengana
           </p>
         </SwiperSlide>
       </Swiper>
